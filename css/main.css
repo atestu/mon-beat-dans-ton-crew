@@ -1,0 +1,63 @@
+body {
+  font-family: 'Amatic SC', serif;
+  color: white;
+  background-image: url(../img/fantasy_space-wide.jpg);
+}
+body a,
+body:hover,
+body a:focus {
+  color: white;
+}
+body p {
+  font-size: 18px;
+}
+h1 {
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 120px;
+}
+#title {
+  font-weight: normal;
+  font-size: 40px;
+  text-decoration: none;
+  border-bottom: 3px solid;
+  line-height: 1.3;
+}
+#user {
+  display: none;
+}
+#user:before {
+  content: "by ";
+}
+#buzzer {
+  display: block;
+  width: 500px;
+  height: 450px;
+  position: absolute;
+  bottom: 5px;
+  background: url(../img/buzzer.png) no-repeat;
+  cursor: pointer;
+}
+#buzzer:active {
+  bottom: 0;
+}
+#soundcloud {
+  margin-top: 100px;
+  margin-left: 550px;
+}
+#soundcloud img {
+  display: none;
+  float: left;
+  margin-right: 30px;
+}
+#social-sharing {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+#credits {
+  position: fixed;
+  right: 15px;
+  bottom: 0px;
+}
