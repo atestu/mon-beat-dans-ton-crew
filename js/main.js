@@ -1,4 +1,4 @@
-var playlists = ['/playlists/4890458', '/playlists/4835251', '/playlists/4890458', 'playlists/5067224']; // playlists (will all be combined into tracks)
+var playlists = ['/playlists/4890458', '/playlists/4835251', '/playlists/4890458', 'playlists/5067224', 'playlists/5346586']; // playlists (will all be combined into tracks)
 	tracks = [], // global track list
 	track = false, // current track (track object)
 	sound = false; // current sound (streaming object)
