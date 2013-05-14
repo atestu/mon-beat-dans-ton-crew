@@ -22,15 +22,18 @@
 		});
 	});
 
+	function hasAlreadyBeenPlayed (track) {
+		return oldTracks.some(function (o) {
+			return o.id == track.id;
+		});
+	}
+
 	function getRandomTrack () {
 		var randomTrack = tracks[Math.floor(Math.random()*tracks.length)];
-		for (var i = oldTracks.length - 1; i >= 0; i--) {
-			if (oldTracks[i].id == randomTrack.id)
-				randomTrack = tracks[Math.floor(Math.random()*tracks.length)];
-			else
-				break;
-		};
-		if (oldTracks.length == tracks.length) oldTracks = [];
+		if (oldTracks.length == tracks.length)
+			oldTracks = [];
+		while (hasAlreadyBeenPlayed (randomTrack))
+			randomTrack = tracks[Math.floor(Math.random()*tracks.length)];
 		oldTracks.push(randomTrack);
 		return randomTrack;
 	}
