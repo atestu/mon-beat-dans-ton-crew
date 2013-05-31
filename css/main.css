@@ -1,7 +1,7 @@
 body {
   font-family: 'Amatic SC', serif;
   color: white;
-  background-image: url(../img/fantasy_space-wide.jpg);
+  background: url(../img/fantasy_space-wide.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 body a,
