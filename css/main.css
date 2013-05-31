@@ -2,6 +2,7 @@ body {
   font-family: 'Amatic SC', serif;
   color: white;
   background-image: url(../img/fantasy_space-wide.jpg);
+  background-size: cover;
 }
 body a,
 body:hover,
