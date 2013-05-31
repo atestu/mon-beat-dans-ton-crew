@@ -1,6 +1,15 @@
 (function (playlists, tracks, track, sound, oldTracks) {
 	SC.initialize({ client_id: "4fedbfcc06348cea658479ef1d47ebfb" });
 
+	//+ Jonas Raoni Soares Silva
+	//@ http://jsfromhell.com/array/shuffle [v1.0]
+	function shuffle(o){ //v1.0
+	    for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+	    return o;
+	};
+
+	playlists = shuffle(playlists);
+
 	playlists.map(function (playlist) {
 		SC.get(playlist, function(data){
 			if (tracks.length == 0) {
@@ -66,4 +75,4 @@
 	}
 
 	window.onhashchange = playTrack;
-})(['/playlists/4890458', '/playlists/4835251', '/playlists/4890458', '/playlists/5067224', '/playlists/5346586'], [], false, false, []);
+})(['/playlists/4890458', '/playlists/4835251', '/playlists/4890458', '/playlists/5067224', '/playlists/5346586', '/playlists/6080329'], [], false, false, []);
