@@ -8,6 +8,7 @@ body a,
 body:hover,
 body a:focus {
   color: white;
+  outline: none;
 }
 body p {
   font-size: 18px;
