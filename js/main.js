@@ -11,7 +11,7 @@
 	playlists = shuffle(playlists);
 
 	playlists.map(function (playlist) {
-		SC.get(playlist, function(data){
+		SC.get('/playlists/'+playlist, function(data){
 			if (tracks.length == 0) {
 				tracks = data.tracks;
 				if (location.hash !== '') {
@@ -75,4 +75,4 @@
 	}
 
 	window.onhashchange = playTrack;
-})(['/playlists/4890458', '/playlists/4835251', '/playlists/4890458', '/playlists/5067224', '/playlists/5346586', '/playlists/6080329'], [], false, false, []);
+})([5673616, 4835251, 4890458, 5067224, 5346586, 6080329, 6789700], [], false, false, []);
