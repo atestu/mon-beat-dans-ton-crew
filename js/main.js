@@ -1,4 +1,11 @@
-(function (playlists, tracks, track, sound, oldTracks) {
+(function () {
+	// var playlists = [5673616, 4835251, 4890458, 5067224, 5346586, 6080329, 6789700],
+	var playlists = [5673616, 4890458, 5067224, 5346586, 6080329, 6789700],
+		tracks = [],
+		track = false,
+		sound = false,
+		oldTracks = [];
+
 	SC.initialize({ client_id: "4fedbfcc06348cea658479ef1d47ebfb" });
 
 	//+ Jonas Raoni Soares Silva
@@ -75,4 +82,4 @@
 	}
 
 	window.onhashchange = playTrack;
-})([5673616, 4835251, 4890458, 5067224, 5346586, 6080329, 6789700], [], false, false, []);
+})();
