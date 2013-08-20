@@ -1,6 +1,5 @@
 (function () {
-	// var playlists = [5673616, 4835251, 4890458, 5067224, 5346586, 6080329, 6789700],
-	var playlists = [5673616, 4890458, 5067224, 5346586, 6080329, 6789700],
+	var playlists = [4890458, 5673616, 4890458, 5067224, 5346586, 6080329, 6789700, 7432792, 9197291],
 		tracks = [],
 		track = false,
 		sound = false,
@@ -48,30 +47,34 @@
 		var randomTrack = tracks[Math.floor(Math.random()*tracks.length)];
 		if (oldTracks.length == tracks.length)
 			oldTracks = [];
-		while (hasAlreadyBeenPlayed (randomTrack))
+		while (hasAlreadyBeenPlayed (randomTrack) && !randomTrack.streamable)
 			randomTrack = tracks[Math.floor(Math.random()*tracks.length)];
 		oldTracks.push(randomTrack);
 		return randomTrack;
 	}
 
 	function playTrack () {
+		if (!track.streamable) track = getRandomTrack();
 		if (sound) sound.stop();
-		if (track.artwork_url)
-			$('#cover').show().attr('src', track.artwork_url)
-		else
+		if (track.artwork_url) {
+			$('#cover').show().attr('src', track.artwork_url);
+		}
+		else {
 			$('#cover').hide();
+		}
 		$('#title').text(track.title).attr('href', track.permalink_url);
 		$('.twitter-share-button').remove();
 		$('h2').append(' <a id="twitter-btn" href="https://twitter.com/share" data-text="'+ track.title + ' #MonBeatDTC" data-url="'+ location.href +'"class="twitter-share-button" data-related="monbeatdtc" data-lang="en" data-size="large" data-count="none">Tweet</a>');
 		twttr.widgets.load();
 
-		SC.stream("/tracks/"+track.id, function(s){
-			sound = s;
-			sound.play({
-				onfinish: function () {
-					location.hash = '#'+track.id;
-				}
-			});
+		SC.stream("/tracks/"+track.id, {
+			autoPlay: true,
+			onplay: function () {
+				sound = this;
+			},
+			onfinish: function () {
+				location.hash = '#'+track.id;
+			}
 		});
 
 		window._gaq = window._gaq || [];
