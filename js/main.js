@@ -1,5 +1,5 @@
 (function () {
-	var playlists = [4890458, 5673616, 4890458, 5067224, 5346586, 6080329, 6789700, 7432792, 9197291, 10059692, 11306085],
+	var playlists = [4890458, 5673616, 4890458, 5067224, 5346586, 6080329, 6789700, 7432792, 9197291, 10059692, 11306085, 13344452],
 		tracks = [],
 		track = false,
 		sound = false,
@@ -41,9 +41,12 @@
 	}
 
 	function playTrack () {
+		$('.icon').addClass('icon-pause');
+		$('.icon').removeClass('icon-play');
 		if (!track.streamable) track = getRandomTrack();
 		if (sound) sound.stop();
 		if (track.artwork_url) {
+			$('.cover').show();
 			$('#cover').show().attr('src', track.artwork_url);
 		}
 		else {
@@ -70,6 +73,17 @@
 		track = getRandomTrack();
 		$('#buzzer').attr('href', '#'+track.id);
 	}
+
+	$(document).on('click', '.play-pause', function () {
+		if (sound) {
+			if (!sound.paused)
+				sound.pause();
+			else
+				sound.play();
+			$(this).find('.icon').toggleClass('icon-pause', !sound.paused);
+			$(this).find('.icon').toggleClass('icon-play', sound.paused);
+		}
+	});
 
 	window.onhashchange = playTrack;
 })();
